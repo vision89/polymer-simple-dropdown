@@ -4,4 +4,4 @@ A very simple dropdown to use with polymer.  It will have the dropdown on the le
 
 ## Demo and documentation
 
-[Absolute README link](http://vision89.github.io/polymer-simple-dropdown/components/polymer-simple-dropdown/)
+[http://vision89.github.io/polymer-simple-dropdown/components/polymer-simple-dropdown/](http://vision89.github.io/polymer-simple-dropdown/components/polymer-simple-dropdown/)
