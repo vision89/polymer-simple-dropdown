@@ -1,0 +1,331 @@
+<!--
+@license
+Copyright (c) 2015 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../paper-dropdown-menu/paper-dropdown-menu.html">
+<link rel="import" href="../paper-menu/paper-menu.html">
+<link rel="import" href="../paper-item/paper-item.html">
+<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+
+<!--
+An element for creating a dropdown menu that works as simply as possible.  It will contian the dropdown menu on the left and an error message on the right.
+
+Example:
+
+    <polymer-simple-dropdown label="Dropdown Test:" dropdown-label="Item" 
+      selected-item="{{selected}}" items="[[list]]" error-message="An item must be selected">
+      </polymer-simple-dropdown>
+
+@group Seed Elements
+@element polymer-simple-dropdown
+@demo demo/index.html
+@hero hero.svg
+-->
+<dom-module id="polymer-simple-dropdown">
+
+  <template>
+    <style>
+      :host {
+        display: block;
+        box-sizing: border-box;
+      }
+  
+      paper-dropdown-menu {
+
+      float: left;
+      margin-left: 1.75em;
+      width: 100%;
+
+    }
+
+    .list-select-head {
+
+      text-align: left;
+      font-weight: bold;
+      font-size: 1.25em;
+      margin-left: 1.6em;
+      margin-top: 1.5em;
+
+    }
+
+    .error {
+
+      float: left;
+      margin-top: 1.7em;
+      color: #FF7043;
+
+    }
+
+    .grid-container {
+
+      width : 100%;
+      max-width : 100%;
+
+      }
+
+      /*-- our cleafix hack -- */ 
+      .row:before, 
+      .row:after {
+          content:"";
+          display: table ;
+          clear:both;
+      }
+
+      .col-1 {
+
+          width: 10.00%;
+          float: left;
+      
+      }
+
+      .col-2 {
+          
+          width: 20.00%;
+          float: left; 
+      
+      }
+
+      .col-3 {
+          
+          width: 30.00%;
+          float: left;
+      
+      }
+
+      .col-4 {
+          
+          width: 40.00%;
+          float: left;
+      
+      }
+
+      .col-5 {
+          
+          width: 50.00%;
+          float: left;
+      
+      }
+
+      .col-6 {
+          
+          width: 60.00%;
+          float: left;
+      
+      }
+
+      .col-7 {
+          
+          width: 70.00%;
+          float: left;
+      
+      }
+
+      .col-8 {
+          
+          width: 80.00%;
+          float: left;
+      
+      }
+
+      .col-9 {
+          
+          width: 90.00%;
+          float: left;
+      
+      }
+
+      .col-10 {
+          
+          width: 100%;
+          float: left;
+      
+      }
+
+    </style>
+
+    <div class="grid-container">
+
+      <div class="row">
+
+        <span class="col-10">
+
+          <div class="list-select-head">
+
+            <span>[[label]]</span>
+
+          </div>
+
+        </span>
+
+      </div>
+
+      <div class="row">
+
+        <span class="col-5">
+
+          <!-- selected-item="{{selectedItem}}" -->
+
+          <paper-dropdown-menu label="[[dropdownLabel]]" selected-item="{{selectedItem}}">
+
+            <paper-menu class="dropdown-content" selected="[[defaultSelect]]">
+
+              <template is="dom-repeat" items="[[items]]">
+
+                <paper-item label="[[item.value]]" value="{{item}}"><span>[[item.value]]</span></paper-item>
+
+              </template>
+
+            </paper-menu>
+
+          </paper-dropdown-menu>
+
+        </span>
+
+        <span class="col-1">
+
+          &nbsp;
+
+        </span>
+
+        <span class="col-4">
+
+          <div class="error">
+
+            <span class="error" hidden$="[[selectedItem]]">[[errorMessage]]</span>
+
+          </div>
+
+          &nbsp;
+
+        </span>
+
+      </div>
+
+    </div>
+    
+  </template>
+
+</dom-module>
+
+<script>
+
+  Polymer({
+
+    is: 'polymer-simple-dropdown',
+
+    properties: {
+
+      /**
+       * A label to display above the dropdown
+       * @type {Object}
+       */
+      label: {
+
+        type: String,
+        notify: false,
+        value: ''
+
+      },
+
+      /**
+       * The default text to display when no item is selected
+       * @type {Object}
+       */
+      dropdownLabel: {
+
+        type: String,
+        notify: false,
+        value: ''
+
+      },
+
+      /**
+       * The currently selected item
+       * @type {Object}
+       */
+      selectedItem: {
+
+        type: Object,
+        value: null,
+        notify: true,
+        reflectToAttribute: true
+
+      },
+
+      /**
+       * The list of items displayed in the dropdown.  The items should be object with a populated String property named 'value'.  The 'value' property will be displayed in the dropdown list.
+       * @type {Object}
+       */
+      items: {
+
+        type: Array,
+        value: [],
+        notify: false
+
+      },
+
+      /**
+       * The message which will be displayed when no item is selected.
+       * @type {Object}
+       */
+      errorMessage: {
+
+        type: String,
+        value: '',
+        notify: false
+
+      },
+
+      /**
+       * The index of the object in the array you would like to have selected by default
+       * @type {Object}
+       */
+      defaultSelect: {
+
+        type: Number,
+        value: null,
+        notify: false
+
+      }
+
+    },
+
+    // Element Lifecycle
+
+    ready: function() {
+      // `ready` is called after all elements have been configured, but
+      // propagates bottom-up. This element's children are ready, but parents
+      // are not.
+      //
+      // This is the point where you should make modifications to the DOM (when
+      // necessary), or kick off any processes the element wants to perform.
+
+    },
+
+    attached: function() {
+      // `attached` fires once the element and its parents have been inserted
+      // into a document.
+      //
+      // This is a good place to perform any work related to your element's
+      // visual state or active behavior (measuring sizes, beginning animations,
+      // loading resources, etc).
+
+    },
+
+    detached: function() {
+      // The analog to `attached`, `detached` fires when the element has been
+      // removed from a document.
+      //
+      // Use this to clean up anything you did in `attached`.
+
+    }
+
+  });
+
+</script>
