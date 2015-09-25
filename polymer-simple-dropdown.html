@@ -171,7 +171,7 @@ Example:
 
           <!-- selected-item="{{selectedItem}}" -->
 
-          <paper-dropdown-menu label="[[dropdownLabel]]" selected-item="{{selectedItem}}">
+          <paper-dropdown-menu label="[[dropdownLabel]]" selected-item="{{selectedItem}}" disabled="[[disabled]]">
 
             <paper-menu class="dropdown-content" selected="[[defaultSelect]]">
 
@@ -290,6 +290,18 @@ Example:
 
         type: Number,
         value: null,
+        notify: false
+
+      },
+
+      /**
+       * If true disable the dropdown, otherwise enabled
+       * @type {Object}
+       */
+      disabled: {
+
+        type: Boolean,
+        value: false,
         notify: false
 
       }
