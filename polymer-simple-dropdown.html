@@ -171,13 +171,14 @@ Example:
 
           <!-- selected-item="{{selectedItem}}" -->
 
-          <paper-dropdown-menu label="[[dropdownLabel]]" selected-item="{{selectedItem}}" disabled="[[disabled]]">
+          <paper-dropdown-menu label="[[dropdownLabel]]" selected-item="{{selectedItem}}"
+          disabled$="[[disabled]]">
 
             <paper-menu class="dropdown-content" selected="[[defaultSelect]]">
 
               <template is="dom-repeat" items="[[items]]">
 
-                <paper-item label="[[item.value]]" value="{{item}}"><span>[[item.value]]</span></paper-item>
+                <paper-item label="[[item.value]]" value="[[item]]"><span>[[item.value]]</span></paper-item>
 
               </template>
 
