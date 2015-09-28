@@ -1,0 +1,39 @@
+{
+  "name": "polymer-simple-dropdown",
+  "authors": [
+    "Anonymous <anonymous@example.com>"
+  ],
+  "description": "An element providing a solution to no problem in particular.",
+  "keywords": [
+    "web-component",
+    "polymer",
+    "seed"
+  ],
+  "main": "polymer-simple-dropdown.html",
+  "license": "http://polymer.github.io/LICENSE.txt",
+  "homepage": "https://github.com/<USERNAME>/seed-element/",
+  "ignore": [
+    "/.*",
+    "/test/"
+  ],
+  "dependencies": {
+    "paper-dropdown-menu": "PolymerElements/paper-dropdown-menu#~1.0.2",
+    "paper-menu": "PolymerElements/paper-menu#~1.1.0",
+    "polymer": "Polymer/polymer#^1.1.0",
+    "paper-item": "PolymerElements/paper-item#~1.0.3"
+  },
+  "devDependencies": {
+    "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
+    "web-component-tester": "*"
+  },
+  "_release": "33670479f6",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "33670479f686dcdde0b047737a10b5732adb66cf"
+  },
+  "_source": "git://github.com/vision89/polymer-simple-dropdown.git",
+  "_target": "master",
+  "_originalSource": "vision89/polymer-simple-dropdown",
+  "_direct": true
+}
